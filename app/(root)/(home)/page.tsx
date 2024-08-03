@@ -29,6 +29,7 @@ export default function Home() {
      <button className="text-white" onClick={submitData}>Send</button>
      <SignedIn>
         <UserButton/>
+        
      </SignedIn>
     </main>
   );
