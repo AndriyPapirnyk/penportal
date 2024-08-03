@@ -1,5 +1,6 @@
 "use client"
 
+import { SignedIn, UserButton } from "@clerk/nextjs";
 import axios from "axios";
 import { useState } from "react";
 
@@ -25,7 +26,10 @@ export default function Home() {
     <main className="w-full h-full bg-black flex gap-2 p-4">
      <input className="rounded text-black" type="text" placeholder="name" value={name} onChange={(e) => {setName(e.target.value)}}/>
      <input className="rounded text-black" type="text" placeholder="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
-     <button onClick={submitData}>Send</button>
+     <button className="text-white" onClick={submitData}>Send</button>
+     <SignedIn>
+        <UserButton/>
+     </SignedIn>
     </main>
   );
 }
