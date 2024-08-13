@@ -2,9 +2,9 @@ const User = require('../../models/user.model');
 
 async function authUser(req, res) {
     try {
-        const { name, password } = req.body;
-        res.status(500).json('hello');
-        console.log(name, password)
+        const { userId } = req.body;
+        const user = await User.findOne({ userId: userId });
+        user ? res.status(200).json({exists: true}) : res.status(200).json({exists: false})
     } catch(error) {
         res.status(500).json({ message: error.message });
     }
